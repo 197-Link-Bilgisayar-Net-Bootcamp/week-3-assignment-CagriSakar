@@ -11,6 +11,8 @@ namespace NLayer.API.Controllers
         {
             _categoryService = categoryService;
         }
+
+        /// <summary>Kategoriler</summary>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -18,25 +20,29 @@ namespace NLayer.API.Controllers
             return new ObjectResult(response) { StatusCode = response.Status };
         }
 
-        [HttpGet("{productId}")]
+        /// <summary>Kategori ID</summary>
+        [HttpGet("{Id}")]
         public async Task<IActionResult> Get(int Id)
         {
             return await Get(Id);
         }
 
+        /// <summary>Kategori Kaydet</summary>
         [HttpPost]
         public async Task<IActionResult> Save(Category category)
         {
             return await Save(category);
         }
 
+        /// <summary>Kategori güncelle</summary>
         [HttpPut]
         public async Task<IActionResult> Update(Category category)
         {
             return await Update(category);
         }
 
-        [HttpDelete("{productId}")]
+        /// <summary>Kategori sil</summary>
+        [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete(int productId)
         {
             return await Delete(productId);

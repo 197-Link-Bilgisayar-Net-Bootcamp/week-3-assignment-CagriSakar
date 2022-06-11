@@ -15,6 +15,7 @@ namespace NLayer.API.Controllers
             _productFeatureService = productFeatureService;
         }
 
+        /// <summary>Ürün Özelliği</summary>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -22,24 +23,28 @@ namespace NLayer.API.Controllers
             return new ObjectResult(response) { StatusCode = response.Status };
         }
 
+        /// <summary>Ürün Özelliği ID</summary>
         [HttpGet("{Id}")]
         public async Task<IActionResult> Get(int productId)
         {
             return await Get(productId);
         }
 
+        /// <summary>Ürün Özelliği kaydet</summary>
         [HttpPost]
         public async Task<IActionResult> Save(ProductFeature product)
         {
             return await Save(product);
         }
 
+        /// <summary>Ürün Özelliği güncelle</summary>
         [HttpPut]
         public async Task<IActionResult> Update(ProductFeature product)
         {
             return await Update(product);
         }
 
+        /// <summary>Ürün Özelliği sil</summary>
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete(int productId)
         {
